@@ -1,0 +1,578 @@
+/*---------------------------------------
+Lucy Indomba Projet Final P71
+-----------------------------------------*/
+
+
+/* GLOBAL STYLES
+-----------------*/
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Merriweather", serif;
+  line-height: 1.5;
+  background: url(../images/img_header.jpg) no-repeat fixed 50%;
+  background-size: cover;
+  padding: 0;
+  margin: 0;
+}
+
+
+.row{
+  margin: 0;
+  margin-bottom: 5%;
+
+}
+h1, h2, h3, h4 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  /*margin-bottom: 5px;*/
+  /*text-align: center;*/
+}
+section h1,
+header h2 {
+  text-transform: uppercase;
+}
+header h1 {
+  font-family: "Pacifico", Georgia, cursive;
+  font-size: 80px;
+}
+header h2,
+section h1 {
+  font-size: 32px;
+}
+section h1 {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+/* every other section element,
+starting with the second section */
+section:nth-child(2n+1) {
+  background: #fefefe;
+  background: url(../images/img_header.jpg) no-repeat fixed 50%;
+  background-size: cover;
+
+}
+section:nth-child(2n+2) {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+
+}
+
+
+a {
+  color: #2C808C;
+  font-size: 15px;
+}
+
+
+.nav>li>a:focus, .nav>li>a:hover {
+  /*text-decoration: none;*/
+  /*!* background-color: #eee; *!*/
+}
+a:hover {
+  /*color: white;*/
+  /*text-decoration: none;*/
+}
+
+ul {
+  padding-left: 20px;
+}
+ul li {
+  margin-bottom: 5px;
+  list-style: none;
+}
+nav ul li a:hover {
+  border-bottom:1px solid  white !important;
+}
+
+.content-wrap {
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 90px 0;
+  overflow: auto;
+}
+
+
+/* HEADER
+----------*/
+/*.icon-bar{*/
+  /*font-size: 100px;*/
+  /*color:black;*/
+/*}*/
+.icon-bar{
+
+  color:black;
+  border: 1px solid black;
+  width: 10px;
+  border-radius: 5px;
+}
+.navbar .btn-navbar{
+
+  border:none ;
+}
+
+.navbar .btn-navbar .icon-bar{
+  background: #000;
+box-shadow: none;
+}
+
+
+header {
+  text-align: center;
+  padding: 0px;
+  margin-bottom: 150px;
+}
+
+.entete{
+  /*background: url(../images/img_header.jpg) no-repeat fixed 50%;*/
+  /*background-size: cover;*/
+}
+nav {
+  margin-left: 15%;
+}
+
+/* main
+----------------------*/
+.center h1 {
+  background: #2C808C;
+  display: inline-block;
+  padding: 10px 20px;
+  transform: rotate(-4deg);
+  margin-bottom: 10px;
+  border: none;
+}
+.center .content {
+  float: left;
+  width: 100%;
+
+}
+.center .content h2 {
+text-align: center;
+}
+.profile-image {
+  float: left;
+  width: 27%;
+  margin-right: 3%;
+  padding: 4px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+}
+
+.content{
+  margin-top: 20%;
+}
+/*
+-------------------------------*/
+/*  */
+.item {
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding: 20px 0;
+}
+.item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+
+/* Seconde partie du centre
+-------------------*/
+.secondcenter .date {
+  margin: 5px 0 20px 0;
+  font-size: 12px;
+}
+.secondcenter h3 {
+  line-height: 1.25;
+  font-size: 16px;
+}
+.secondcenter a:hover {
+  color: black;
+}
+.secondcenter .details {
+  float: left;
+  width: 30%;
+  padding-right: 30px;
+}
+.secondcenter .description {
+  /*font-size: 14px;
+  width: 70%;
+  float: right;
+  margin-top: 5px;*/
+
+  font-size: 14px;
+    width: 95%;
+    float: right;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.secondcenter .description > div {
+  border: 2px solid white;
+  padding: 15px;
+    display: inline-block;
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.secondcenter .description p:first-child {
+  margin-top: 3px;
+}
+
+.company {
+  font-family: "Pacifico", Georgia, cursive;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  color: #2C808C;
+}
+
+/*Page ACCUEIL
+---------*/
+#mainindex{
+  background: #fefefe;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 10%;
+
+
+}
+
+#mainindex p{
+color: black;
+  text-align: justify;
+
+}
+#mainindex h2{
+  color: black;
+
+}
+
+.index{
+  margin-bottom: 6%;
+  margin-top: 6%;
+}
+
+.expertise{
+  border: 5px solid white;
+  vertical-align: top;
+}
+.detail{
+  padding: 10px;
+  border: 2px solid black;
+}
+.clientslogo{
+  width: 100%;
+  background: #fefefe !important;
+  padding-bottom: 0.5px;
+  padding-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.clientslogo h2{
+  color: black;
+  text-align: center;
+  line-height: 5%;
+  margin: 3% 3%;
+  text-align: center;
+}
+.detail a{
+  border: 2px solid red;
+  color: #0d56c2 !important;
+}
+.button {
+  border-radius: 32px;
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 1em 2em;
+  font-weight: 700;
+}
+/*Fin Page ACCUEIL
+---------*/
+
+
+
+
+/*Page a propos
+---------*/
+#apropos2{
+  background: #fefefe;
+  text-align: center;
+}
+#apropos1{
+  background: #fefefe;
+  text-align: center;
+  margin-top: 10%;
+}
+
+
+#apropos1 h2 {
+  margin: 3% 3%;
+  text-align: center;
+}
+.content p {
+  color: white !important;
+}
+/*Fin Page a propos
+---------*/
+
+
+
+
+
+
+
+
+
+
+
+/*Page SERVICES
+---------*/
+.description h2{
+  color: black;
+}
+.nosmandats{
+  border:1px solid blue;
+  width: 100%;
+
+}
+
+#mandats{
+ margin-top: 5%;
+  margin-bottom: 5%;
+
+}
+
+.industry-card{
+  position: relative;
+  min-height: 270px;
+  margin-bottom: 45px;
+  border: 3px solid black;
+
+}
+.industry-img{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  right: 0;
+  /*position: absolute;*/
+  position: inherit;
+  z-index: 0;
+
+}
+
+.industry-title{
+  background-color: #0d56c2;
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  width: 270px;
+  height: 80px;
+  padding: 12px 20px;
+  box-shadow: 4px 4px 12px rgba(0,0,0,.2);
+}
+.equipe{
+border: 1px solid red;
+    display: inline-block;
+    width: 33%;
+    vertical-align: top;
+}
+.secondcenter3{
+
+}
+/*Fin Page SERVICES
+---------*/
+
+/*DÉBUT Page REALISATIONS
+---------*/
+.real .img-g{
+  left: 0;
+
+
+}
+.real .img-l{
+  right: 0;
+
+}
+.real{
+  background: #fefefe !important;
+}
+.real div:nth-child(1){
+  margin-bottom: 3%;
+}
+.mandat{
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+.real h2{
+  text-align: center;
+  margin: 2% 2%;
+}
+
+.real h2,h3,p{
+
+color: black}
+/*FIN Page REALISATIONS
+---------*/
+
+/*DÉBUT  Page CONTACT
+---------*/
+.header {
+  color: black;
+  height: 80px;
+  font-size: 27px;
+  padding: 10px;
+}
+.monformulaire{
+  background: lightyellow;
+}
+form label{
+  color: black;
+}
+form{
+  border: 1px solid black;
+  box-shadow: 4px 4px 12px rgba(0,0,0,.2);
+  padding: 0;
+  margin-bottom: 3%;
+
+}
+.form-group{
+margin-bottom: 0 !important;
+}
+.error-message{
+  color:  #ff5b5b;
+  display: inline;
+  display: none;
+
+}
+/*FIN Page CONTACT
+---------*/
+
+/*Début Page Boutique
+---------*/
+.box{
+  border: 1px solid red;
+}
+
+.menu{
+  border: 1px solid yellow;
+}
+.clearfix{
+  background: #ffffff;
+}
+
+/*FIN Page boutique
+---------*/
+
+
+
+
+
+/* EDUCATION
+-------------*/
+.education h2 {
+  text-transform: uppercase;
+}
+.education h3 {
+  color: #2C808C;
+}
+
+
+/* CONTACT & FOOTER
+--------------------*/
+.contact {
+  background: #111;
+}
+.contact p {
+  margin: 0;
+}
+.contact p:first-of-type {
+  margin-top: 35px;
+}
+.contact .social {
+  width: 50%;
+  float: right;
+  text-align: right;
+  font-size: 30px;
+}
+.contact .social a {
+  margin: 0 8px;
+}
+
+footer {
+  clear: both;
+  font-size: 12px;
+  margin-top: 50px;
+}
+.invalide{
+ color: red;
+}
+
+
+/* MEDIA QUERIES
+--------------------*/
+@media (max-width: 800px) {
+  /* this is here just for testing */
+  .icon-bar{
+    border: 1px solid yellow;
+
+  }
+  body {
+    /*color: blue;*/
+  }
+  /* About section */
+  .profile-image {
+    width: 48%;
+    float: right;
+    margin: 0 0 15px 2%;
+  }
+  .center .content {
+    width: auto; /* resets the width setting */
+    /* or could also use width: 50% - if you don't want the text to wrap */
+    float: none; /* removes the float */
+  }
+  .secondcenter .details {
+    float: none; /* removed float */
+    width: 100%; /* auto will work as well */
+    padding-right: 0px; /* don't need padding anymore now that it spans across the page */
+  }
+  .secondcenter .description {
+    width: 100%;
+    float: none; /* removed float */
+  }
+}
+@media (max-width: 600px) {
+  .icon-bar{
+    border: 1px solid pink;
+
+  }
+  header {
+    padding: 75px 40px;
+  }
+  header h1 {
+    font-size: 45px;
+  }
+  header h2,
+  section h1 {
+    font-size: 24px;
+  }
+  .education h2 {
+    font-size: 18px;
+  }
+  .contact .social {
+    width: 100%;
+    float: left;
+    text-align: left;
+    margin-bottom: 20px;
+  }
+}
