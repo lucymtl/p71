@@ -1,1 +1,5 @@
+# Gestion page 404
 ErrorDocument 404 /page404.php
+
+# Gestion page accueil
+DirectoryIndex accueil.php
