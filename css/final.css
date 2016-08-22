@@ -517,7 +517,9 @@ footer {
 .invalide{
  color: red;
 }
-
+.msg{
+  color: black;
+}
 
 /* MEDIA QUERIES
 --------------------*/

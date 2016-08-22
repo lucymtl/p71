@@ -3,7 +3,7 @@
 //var_dump($_SERVER['REQUEST_METHOD']);
 
 /*Validation des données (seulement si on est en POST) */
-var_dump($_POST);
+//var_dump($_POST);
 $receiving = ('POST' === $_SERVER['REQUEST_METHOD']); // On est en réception des données de formulaire
 
 // Le champ text nom
@@ -14,7 +14,7 @@ if ($receiving && array_key_exists('prenom', $_POST)) {
     // Filtrer les caractères invalides (caractères incompatibles avec le SQL)
     $prenom = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_STRING);
     // Validation du nom avec
-    $prenom_valide = (1 === preg_match('/\w{2,}/', $nom));
+    $prenom_valide = (1 === preg_match('/\w{2,}/', $prenom));
     if (!$prenom_valide) {
         $prenom_msg_validation = "Le prenom doit comporter au moins deux lettres";
     }
@@ -36,33 +36,33 @@ if ($receiving && array_key_exists('nom', $_POST)) {
     }
 }
 
-$emailErr ="";
-if (empty($_POST["email"])) {
-    $emailErr = "Email is required";
-} else {
-    $email = test_input($_POST["email"]);
+
+
+
+$email= "";
+$email_valide = true;
+$email_msg_validation = '';
+if ($receiving && array_key_exists('email',$_POST)) {
+    $email = filter_input(INPUT_POST, 'email',FILTER_VALIDATE_EMAIL);
+//    $emailErr = "Email is required";
+    $email_valide = (1 === preg_match('/\w{2,}/', $email));
     // check if e-mail address is well-formed
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $emailErr = "Invalid email format";
+    if (!$email) {
+        $email_msg_validation = "format email invalide";
     }
 }
 
 
-
-
-//$emailErr = "";
-//$email= "";
-//$email_valide = true;
-//$email_msg_validation = '';
-//if ($receiving && array_key_exists('email',$_POST)) {
-//    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
-////    $emailErr = "Email is required";
-//    $email_valide = (1 === preg_match('/\w{2,}/', $email));
-//    // check if e-mail address is well-formed
-//    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-//        $emailErr = "format email invalide";
-//    }
-//}
+$phone= "";
+$phone_valide = true;
+$phone_msg_validation = '';
+if ($receiving && array_key_exists('phone',$_POST)) {
+    $phone = filter_input(INPUT_POST, 'phone',FILTER_VALIDATE_EMAIL);
+    $phone_valide = (1 === !preg_match("/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/", $phone));
+    if (!$phone) {
+        $phone_msg_validation = "Format du numero :514-123-123";
+    }
+}
 
 
 
@@ -161,10 +161,13 @@ if ($receiving) {
 
         <div class=" mandat ">
             <div class=" col-lg-5 img-g">
-                <img src="images/img_femme_travail.jpg" width="300" alt="logo client">
+                <img src="images/img_femme_travail.jpg" width="650" height="400" alt="logo client">
+                <p class="msg">Prenez contact avec nous même pour prendre  un Café!</p>
+                <span class="msg">Nous vous repondrons dans les plus brefs délais!</span>
             </div>
-            <div class="col-lg-6 ">
-                <p><span class="error">* required field.</span></p>
+
+            <div class="col-lg-5 ">
+
                 <form class="form-horizontal" method="post">-->
                     <fieldset>
                     <legend class="text-center header">HELLO!</legend>
@@ -196,20 +199,27 @@ if ($receiving) {
 
                     <div class="form-group">
                     <div class="col-md-10 col-md-offset-1">
-                    <label for="email">E-Mail*</label>
-                    <input id="email" name="email" type="text"   placeholder="Courriel" class="form-control">
-                        <span class="error">* <?php echo $emailErr;?></span>
+                        <span <?= $receiving && ( ! $email_valide) ? 'class="invalide"' : '' ?>>
+                    <label for="email">Courriel*</label>
+                    <input id="email" name="email" type="text" value="<?= $email ?>"   placeholder="Courriel" class="form-control">
+                            <?php if ($receiving && ( ! $email_valide)) {
+                                echo "<span class='msg_validation'>($email_msg_validation)<span>";
+                            } ?>
                     </div>
                     </div>
-
+</span>
 
                     <div class="form-group">
                     <div class="col-md-10 col-md-offset-1">
+                         <span <?= $receiving && ( ! $phone_valide) ? 'class="invalide"' : '' ?>>
                     <label for="phone">Télephone*</label>
-                    <input id="phone" name="phone" type="text" placeholder="telephone" class="form-control">
+                    <input id="phone" name="phone" type="text" value="<?= $phone ?>"  placeholder="telephone" class="form-control">
+                             <?php if ($receiving && ( ! $phone_valide)) {
+                                 echo "<span class='msg_validation'>($phone_msg_validation)<span>";
+                             } ?>
                     </div>
                     </div>
-
+</span>
 
 
 
