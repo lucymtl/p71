@@ -23,7 +23,7 @@
 <!--  <div class=" col-lg-8 col-md-10 col-sm-10 navbar">-->
 <!--    <div class="navbar-inner">-->
 <!---->
-<!--      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->-->
+<!--      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
 <!--      <a class="col-md-10  col-sm-10 col-sm-offset-2 col-xs-12 btn navbar btn-navbar collapse" data-toggle="collapse" data-target=".nav-collapse">-->
 <!---->
 <!--        <span class="icon-bar">MENU</span>-->
@@ -32,10 +32,10 @@
 <!---->
 <!--      </a>-->
 <!---->
-<!--      <!-- Be sure to leave the brand out there if you want it shown -->-->
-<!--      <!--<a class="brand" href="#">DIGIKAN</a>-->-->
+<!--      <!-- Be sure to leave the brand out there if you want it shown -->
+<!--      <!--<a class="brand" href="#">DIGIKAN</a>-->
 <!---->
-<!--      <!-- Everything you want hidden at 940px or less, place within here -->-->
+<!--      <!-- Everything you want hidden at 940px or less, place within here -->
 <!--      <div class=" col-lg-offset-3 nav-collapse">-->
 <!--        <nav >-->
 <!--          <ul class=" nav navbar-nav">-->
