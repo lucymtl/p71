@@ -63,6 +63,14 @@ section:nth-child(2n+2) {
 
 }
 
+#error{
+  width: 80%;
+  text-align: center;
+  border: 1px solid white;
+  margin-left: 10%;
+  margin-top: 14%;
+  color
+}
 
 a {
   color: #2C808C;

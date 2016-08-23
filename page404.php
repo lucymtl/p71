@@ -16,10 +16,14 @@
     <link rel="stylesheet" href="css/final.css">
 </head>
 <body>
+<section></section>
+<section class="col-lg-5" id="error">
+    <img src="images/img_femmes_ballons.jpg"><
+    <h1> OUPS CETTE PAGE N'EXISTE PAS </h1>
+    <h2>REVIENS  VITE VERS <a href="accueil.php">NOUS !!!</a></h2>
 
 
-<h1> OUPS CETTE PAGE N'EXISTE PLUS </h1>
-<p>REVIENS VERS NOUS <a href="accueil.php">SUR NOTRE SITE</a></p>
+</section>
 
 
 </body>
