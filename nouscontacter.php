@@ -58,13 +58,40 @@ $phone_valide = true;
 $phone_msg_validation = '';
 if ($receiving && array_key_exists('phone',$_POST)) {
     $phone = filter_input(INPUT_POST, 'phone',FILTER_VALIDATE_EMAIL);
-    $phone_valide = (1 === !preg_match("/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/", $phone));
+    $phone_valide = (1 === !preg_match("/[1-9][01][0-9]-?[0-9]{3}-=[0-9]{4}", $phone));
     if (!$phone) {
-        $phone_msg_validation = "Format du numero :514-123-123";
+        $phone_msg_validation = "Format du numero invalide";
     }
 }
 
 
+// Un champ commentaire (textarea)
+$commentaire = ""; // Contenu du champ commentaire
+$commentaire_valide = true; // Le champ est valide par défaut
+$commentaire_msg_validation = ''; // Le message à renvoyer à l'utilisateur si le commentaire n'est pas suffisamment rempli
+if ($receiving) {
+    $commentaire_valide = array_key_exists('commentaire', $_POST);
+    $commentaire = filter_input(INPUT_POST, 'commentaire', FILTER_SANITIZE_STRING);
+    $commentaire_valide = (1 === preg_match('/\w{10,}/', $commentaire));
+    if ( ! $commentaire_valide) {
+        $commentaire_msg_validation = "Le commentaire doit contenir au moins dix caractères";
+    }
+}
+
+
+
+//$infolettre = "";
+//$infolettre_valide = true; // Le champ est valide par défaut
+//$infolettre_msg_validation = ''; // Le message à renvoyer à l'utilisateur
+//if ($receiving) {
+//    $infolettre_valide = array_key_exists('infolettre', $_POST)
+//        && is_array($_POST,'infolettre');
+//    if ($infolettre_valide) {
+//        $infolettre = $_POST,'infolettre'; // Attention $role est un array ici
+//    } else {
+//        $role_msg_validation = "Aucun role n'est sélectionné";
+//    }
+//}
 
 //// Le champ sexe
 //$sexe = ""; // Contenu du champ sexe (sexe_h ou sexe_f)
@@ -80,20 +107,106 @@ if ($receiving && array_key_exists('phone',$_POST)) {
 //    }
 //}
 
-
-
-// Un champ commentaire (textarea)
-$commentaire = ""; // Contenu du champ commentaire
-$commentaire_valide = true; // Le champ est valide par défaut
-$commentaire_msg_validation = ''; // Le message à renvoyer à l'utilisateur si le commentaire n'est pas suffisamment rempli
-if ($receiving) {
-    $commentaire_valide = array_key_exists('commentaire', $_POST);
-    $commentaire = filter_input(INPUT_POST, 'commentaire', FILTER_SANITIZE_STRING);
-    $commentaire_valide = (1 === preg_match('/\w{10,}/', $commentaire));
-    if ( ! $commentaire_valide) {
-        $commentaire_msg_validation = "Le commentaire doit contenir au moins dix caractères";
-    }
-}
+/************Pour le renvoi vers la boite gmail************************************/
+////form validation vars
+//$formok = true;
+//$errors = array();
+//
+////sumbission data
+//$ipaddress = $_SERVER['REMOTE_ADDR'];
+//$date = date('d/m/Y');
+//$time = date('H:i:s');
+//
+////form data
+//$name = $_POST['name'];
+//$email = $_POST['email'];
+//$telephone = $_POST['telephone'];
+//$enquiry = $_POST['enquiry'];
+//$message = $_POST['message'];
+//$apikey = 'key';
+//$listID = 'id';
+//
+//
+////
+//if (!empty($_POST['newsletter'])) {
+//    $url = sprintf('http://api.mailchimp.com/1.2/?method=listSubscribe&apikey=%s&id=%s&email_address=%s&merge_vars[OPTINIP]=%s&merge_vars[NAME]=name&output=json', $apikey, $listID, $email, $_SERVER['REMOTE_ADDR']);
+//    $ch = curl_init($url);
+//    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+//    $data = curl_exec($ch);
+//    curl_close($ch);
+//    $arr = json_decode($data, true);
+//
+//}
+////validate form data
+//
+////validate name is not empty
+//if(empty($name)){
+//    $formok = false;
+//    $errors[] = "You have not entered a name";
+//}
+//
+////validate email address is not empty
+//if(empty($email)){
+//    $formok = false;
+//    $errors[] = "You have not entered an email address";
+////validate email address is valid
+//}elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+//    $formok = false;
+//    $errors[] = "You have not entered a valid email address";
+//}
+//
+////validate message is not empty
+//if(empty($message)){
+//    $formok = false;
+//    $errors[] = "You have not entered a message";
+//}
+////validate message is greater than 20 charcters
+//elseif(strlen($message) < 20){
+//    $formok = false;
+//    $errors[] = "Your message must be greater than 20 characters";
+//}
+//
+////send email if all is ok
+//if($formok){
+//    $headers = "From: email.ca" . "\r\n";
+//    $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+//
+//    $emailbody = "<p>You have recieved a new message from the enquiries form on your website.</p>
+//                  <p><strong>Name: </strong> {$name} </p>
+//                  <p><strong>Email Address: </strong> {$email} </p>
+//                  <p><strong>Telephone: </strong> {$telephone} </p>
+//                  <p><strong>Message: </strong> {$message} </p>
+//                  <p>This message was sent from the IP Address: {$ipaddress} on {$date} at {$time}</p>";
+//
+//    mail("email@gmail.com","New Enquiry",$emailbody,$headers);
+//
+//}
+//
+////what we need to return back to our form
+//$returndata = array(
+//    'posted_form_data' => array(
+//        'name' => $name,
+//        'email' => $email,
+//        'telephone' => $telephone,
+//        'message' => $message
+//    ),
+//    'form_ok' => $formok,
+//    'errors' => $errors
+//);
+//
+//
+//
+//
+////if this is not an ajax request
+//if(empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) !== 'xmlhttprequest'){
+//    //set session variables
+//    session_start();
+//    $_SESSION['cf_returndata'] = $returndata;
+//
+//    //redirect back to form
+//    header('location: ' . $_SERVER['HTTP_REFERER']);
+//}
+//
 
 
 ?>
@@ -235,8 +348,32 @@ if ($receiving) {
                     </div>
                         </span>
 
+                        <div class="form-group">
+                            <div class="col-md-10 col-md-offset-1">
+                        <span <?= $receiving && ( ! $infolettre_valide) ? 'class="invalide"' : '' ?>>
+                            <label for="infolettre">Je souhaite souscrire à votre Newsletter</label>
+                            <input type="checkbox" id=infolettre" name="infolettre" value="infolettre"
+                                <?= $receiving && is_array($infolettre) && in_array('role_lecteur',$infolettre) ? 'checked="checked"' : '' ?>
+                            />
 
-                    <div class="form-group">
+                            <?php if ($receiving && (!$infolettre_valide)) {
+                                echo "<span class='msg_validation'>$infolettre_msg_validation<span>";
+                            } ?>
+                            </div>
+                             </div>
+                        </span>
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="form-group">
                     <div class="col-md-12 text-center">
                     <button type="submit" class="btn btn-primary btn-lg">Envoyer</button>
                         <button><a href="<?= basename($_SERVER["SCRIPT_FILENAME"]) ?>">Relancer la page</a></button>
