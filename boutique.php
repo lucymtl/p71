@@ -3,8 +3,7 @@ require_once('db/defines.php');
 require_once('db/conn.php');
 
 $articles = get_produit_list();
-var_dump($articles);
-
+//var_dump($articles);
 
 ?>
 <!DOCTYPE html>
@@ -34,37 +33,41 @@ require ('includes/header.php'); ?>
 
 
 
-<?php
 
-?>
-   <div id="boutique"  class="home">
-       <div class="row">
-            <div class=" wrap">
-               <div class="col-lg-2 box">
-                   <?php
-                   foreach ($articles as $id => $produit) {
-//                       var_dump($produit);
-                 ?>
-                    <div class="product full">
-                            <a href="detail.php?item_id=<?= $id ?>">
-                            <img src='<?="images/". $produit['picture'] ?>'/>
-                      </a>
-                        <span><?= $produit['name'] ?></span>
-                         <span class=".prix"><?= $produit['price'] ?></span>
+    <section  id="mainindex" class="row">
 
-                            <span><?= $produit['description'] ?></span>
-                            <a href="#" class="price"></a>
-                       <a class= "add" href="#">add</a>
+        <div class="index ">
 
-                    </div>
-               </div>
-                <?php
-                } // foreach
-                // else if empty
-                ?>
+                    <?php
+                    foreach ($articles as $id => $produit) {
+                    //       var_dump($produit);
+                    ?>
+            <div class=" expertise col-lg-12">
+                <div class=" toto col-lg-6">
+                        <div class="col-lg-6 box product full">
+                                <img src='<?="images/". $produit['picture'] ?>'/>
+                            <p><?= $produit['name'] ?></p>
+                            <p class=".prix"><?= $produit['price'] ?></p>
+                            <p><?= $produit['description'] ?></p>
+                            <a class= "add" href="#">add</a>
+                            <a href="detail.php?item_id="<?= $id ?>>Acheter</a>
+
+                        </div>
+                        </div>
+
                 </div>
-                </div>
-                </div>
+
+            </div>
+
+        <?php
+        } // foreach
+        // else if empty
+        //                ?>
+
+    </section>
+
+
+
 
 
 
