@@ -1,3 +1,12 @@
+<?php
+require_once('db/defines.php');
+require_once('db/conn.php');
+
+$articles = get_produit_list();
+var_dump($articles);
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,176 +24,54 @@
     <!-- PUT THE STYLESHEET LINK HERE -->
     <link rel="stylesheet" href="css/final.css">
 </head>
+
+
 <body>
 
 
 <?php
-include ('includes/header.php'); ?>
+require ('includes/header.php'); ?>
 
 
 
+<?php
 
-
-<!--  FIN HEADER -->
-
-
-
-
-<!--    <div class=>-->
-<!--        <a href="#" class="logo">Shopping</a>-->
-<!--        <h1>La meilleure boutique</h1>-->
-<!--        <ul class=" col-lg-6 col-lg-offset-6 panier">-->
-<!--            <li class="caddie"><a href="#">Caddie</a></li>-->
-<!--            <li class="items">-->
-<!--                ITEMS-->
-<!--                <span>13</span>-->
-<!--            </li>-->
-<!--            <li class=" total">-->
-<!--                TOTAL-->
-<!--                <span>1320.09$</span>-->
-<!--            </li>-->
-<!--        </ul>-->
-<!--    </div>-->
-
-    <div id="boutique"  class=" col-lg-12 home">
-        <div class="row">
+?>
+   <div id="boutique"  class="home">
+       <div class="row">
             <div class=" wrap">
-                <div class="col-lg-4 box">
+               <div class="col-lg-2 box">
+                   <?php
+                   foreach ($articles as $id => $produit) {
+//                       var_dump($produit);
+                 ?>
                     <div class="product full">
-                        <a href="#">
-                            <img src="images/logo_bfw.png" >
-                        </a>
-                        <div class="description">
-                            Apple ,<strong>ipad:</strong>
-                            <a href="#" class="price">1500$</a>
-                        </div>
-                        <a href="#" class="gift">
-                            GIFT
-                        </a>
+                            <a href="detail.php?item_id=<?= $id ?>">
+                            <img src='<?="images/". $produit['picture'] ?>'/>
+                      </a>
+                        <span><?= $produit['name'] ?></span>
+                         <span class=".prix"><?= $produit['price'] ?></span>
 
-                        <a class= "add" href="#">
-                            add
-                        </a>
+                            <span><?= $produit['description'] ?></span>
+                            <a href="#" class="price"></a>
+                       <a class= "add" href="#">add</a>
+
                     </div>
+               </div>
+                <?php
+                } // foreach
+                // else if empty
+                ?>
+                </div>
+                </div>
                 </div>
 
 
 
 
-                <div class="col-lg-4 box">
-                    <div class="product full">
-                        <a href="#">
-                            <img src="images/logo_bfw.png" alt="image item">
-                        </a>
-                        <div class="description">
-                            Apple ,<strong>ipad:</strong>
-                            <a href="#" class="price">1500$</a>
-                        </div>
-                        <a href="#" class="gift">
-                            GIFT
-                        </a>
 
-                        <a class= "add" href="#">
-                            add
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 box">
-                    <div class="product full">
-                        <a href="#">
-                            <img src="images/logo_bfw.png" alt="image item">
-                        </a>
-                        <div class="description">
-                            Apple ,<strong>ipad:</strong>
-                            <a href="#" class="price">1500$</a>
-                        </div>
-                        <a href="#" class="gift">
-                            GIFT
-                        </a>
-
-                        <a class= "add" href="#">
-                            add
-                        </a>
-                    </div>
-                </div>
-
-
-
-                <div class="col-lg-4 box">
-                    <div class="product full">
-                        <a href="#">
-                            <img src="images/logo_bfw.png" alt="image item">
-                        </a>
-                        <div class="description">
-                            Apple ,<strong>ipad:</strong>
-                            <a href="#" class="price">1500$</a>
-                        </div>
-                        <a href="#" class="gift">
-                            GIFT
-                        </a>
-
-                        <a class= "add" href="#">
-                            add
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 box">
-                    <div class="product full">
-                        <a href="#">
-                            <img src="images/logo_bfw.png" alt="image item">
-                        </a>
-                        <div class="description">
-                            Apple ,<strong>ipad:</strong>
-                            <a href="#" class="price">1500$</a>
-                        </div>
-                        <a href="#" class="gift">
-                            GIFT
-                        </a>
-
-                        <a class= "add" href="#">
-                            add
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 box">
-                    <div class="product full">
-                        <a href="#">
-                            <img src="images/logo_bfw.png" alt="image item">
-                        </a>
-                        <div class="description">
-                            Apple ,<strong>ipad:</strong>
-                            <a href="#" class="price">1500$</a>
-                        </div>
-                        <a href="#" class="gift">
-                            GIFT
-                        </a>
-
-                        <a class= "add" href="#">
-                            add
-                        </a>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-
-    </div>
-
-
-
-
-    <?php
-    include ('includes/footer.php'); ?>
-
-
-
+<?php include ('includes/footer.php'); ?>
 
 </body>
 </html>
-
-
 
