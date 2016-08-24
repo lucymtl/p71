@@ -12,7 +12,7 @@ class DB  {
     private $username ='root';
     private $password ='';
     private $database ='digikan';
-    public $db;
+    private $db;
 
     public function __construct($host = null, $username = null, $password = null, $database = null){
         if($host != null){
