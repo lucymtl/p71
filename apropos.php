@@ -14,56 +14,23 @@
 
     <!-- PUT THE STYLESHEET LINK HERE -->
     <link rel="stylesheet" href="css/final.css">
+    <!--  <link rel="stylesheet" href="css/test.css">-->
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 </head>
 <body>
 
 <?php
 include ('includes/header.php'); ?>
 
-<!--<section>-->
-<!--    <div class="col-lg-4 col-md-2 col-sm-2 col-xs-2 "><a href="#index.html"><img src="images/logo_bfw.png" alt="logo digikan" /></a></div>-->
-<!--    <div class=" col-lg-8 col-md-10 col-sm-10 navbar">-->
-<!--        <div class="navbar-inner">-->
-<!---->
-<!--            <!-- .btn-navbar is used as the toggle for collapsed navbar content -->-->
-<!--            <a class="col-md-10  col-sm-10 col-sm-offset-2 col-xs-12 btn navbar btn-navbar collapse" data-toggle="collapse" data-target=".nav-collapse">-->
-<!---->
-<!--                <span class="icon-bar">MENU</span>-->
-<!--                <span class="icon-bar"></span>-->
-<!--                <span class="icon-bar"></span>-->
-<!---->
-<!--            </a>-->
-<!---->
-<!--            <!-- Be sure to leave the brand out there if you want it shown -->-->
-<!--            <!--<a class="brand" href="#">DIGIKAN</a>-->-->
-<!---->
-<!--            <!-- Everything you want hidden at 940px or less, place within here -->-->
-<!--            <div class=" col-lg-offset-3 nav-collapse">-->
-<!--                <nav >-->
-<!--                    <ul class=" nav navbar-nav">-->
-<!--                        <li class="active"><a href="accueil.php">ACCUEIL</a></li>-->
-<!--                        <li><a href="apropos.php">A PROPOS</a></li>-->
-<!--                        <li><a href="service.php">NOS SERVICES</a></li>-->
-<!--                        <li><a href="realisations.php">REALISATIONS</a></li>-->
-<!--                        <li><a href="boutique">BOUTIQUE</a></li>-->
-<!--                        <li><a href="nouscontacter.php">CONTACT</a></li>-->
-<!--                    </ul>-->
-<!--                </nav>-->
-<!--            </div>-->
-<!---->
-<!--        </div>-->
-<!--    </div>-->
-<!---->
-<!--</section>-->
-
-
-
-
 
 <!-- main -->
 <section >
     <div class="content-wrap">
         <div class="content">
+            <div class="description">
             <h2>Presentation AGENCE</h2>
             <p>Pourquoi l'utiliser?
                 On sait depuis longtemps que travailler avec du texte lisible et contenant du sens
@@ -76,6 +43,8 @@ include ('includes/header.php'); ?>
                 qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident,
                 souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes).</p>
         </div>
+        </div>
+
     </div>
 </section>
 
@@ -122,7 +91,7 @@ include ('includes/header.php'); ?>
 </section>
 
 <!-- Seconde partie du centre  -->
-<section id="apropos2"  class="secondcenter">
+<section id="apropos2"  class="  secondcenter">
     <div class="content-wrap">
         <div class="item">
             <div class="description">
@@ -144,11 +113,13 @@ include ('includes/header.php'); ?>
     </div>
 </section>
 
-<!-- EDUCATION -->
+<section class="space"></section>
 
 <!-- CONTACT INFO -->
 <?php
 include ('includes/footer.php'); ?>
+
+
 <!--FIN  CONTACT INFO -->
 
 <!--<!-- CONTACT INFO -->-->
