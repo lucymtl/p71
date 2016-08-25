@@ -23,6 +23,7 @@ body {
 .row{
   margin: 0;
   margin-bottom: 5%;
+  margin-bottom: 10%;
 
 }
 h1, h2, h3, h4 {
@@ -69,7 +70,7 @@ section:nth-child(2n+2) {
   border: 1px solid white;
   margin-left: 10%;
   margin-top: 14%;
-  color
+
 }
 
 a {
@@ -102,48 +103,75 @@ nav ul li a:hover {
   width: 80%;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 90px 0;
+padding-top: 5%;
   overflow: auto;
 }
 
 
-/* HEADER
-----------*/
-/*.icon-bar{*/
-  /*font-size: 100px;*/
-  /*color:black;*/
-/*}*/
-.icon-bar{
-
-  color:black;
-  border: 1px solid black;
-  width: 10px;
-  border-radius: 5px;
-}
-.navbar .btn-navbar{
-
-  border:none ;
-}
-
-.navbar .btn-navbar .icon-bar{
-  background: #000;
-box-shadow: none;
-}
 
 
+/*HEADER*/
 header {
-  text-align: center;
-  padding: 0px;
-  margin-bottom: 150px;
+
+  color: #fff;
+  margin-bottom: 2em;
 }
 
-.entete{
-  /*background: url(../images/img_header.jpg) no-repeat fixed 50%;*/
-  /*background-size: cover;*/
+/*NAVIGATION*/
+
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
-nav {
-  margin-left: 15%;
+
+header li {
+  float: left;
+  width: 15%;
 }
+
+header li + li{
+
+}
+header li:last-child{
+
+}
+
+header a {
+  display: block;
+  line-height: 60px;
+  height: 60px;
+  color: #2C808C;
+  font-size: 15px;
+  font-weight: bold;
+  text-align:center;
+  text-transform: uppercase;
+  text-decoration: none !important;
+
+}
+header a:hover{
+
+}
+nav ul li a:hover {
+  border-bottom:1px solid  white !important;
+}
+/*on cache le bouton MENU de la navigation mobile*/
+#nav-mobile{
+  display: none;
+
+}
+/*on affiche la navigation desktop*/
+#nav-desktop{
+  display: block;
+}
+
+
+
+
+
+/*end SMALL DEVICES*/
+
 
 /* main
 ----------------------*/
@@ -265,8 +293,8 @@ color: black;
 }
 
 .index{
-  margin-bottom: 6%;
-  margin-top: 6%;
+
+  margin-top: 3%;
 }
 
 .expertise{
@@ -286,6 +314,13 @@ color: black;
   margin-right: auto;
 
 }
+.clients{
+  padding: 2%;
+  /*border: 1px solid black;*/
+}
+#apropos1 h3{
+  margin-top: -3%;
+}
 .clientslogo h2{
   color: black;
   text-align: center;
@@ -293,9 +328,21 @@ color: black;
   margin: 3% 3%;
   text-align: center;
 }
+.detail{
+  padding: 10px;
+border: 1px solid black;
+  /*height: 407px;*/
+  margin-bottom: 8%;
+
+}
+
 .detail a{
-  border: 2px solid red;
+  border: 1px solid lightcoral;
   color: #0d56c2 !important;
+}
+.detail a:hover{
+background-color: rgba(0,0,0,.2);
+  text-decoration: none;
 }
 .button {
   border-radius: 32px;
@@ -320,7 +367,8 @@ color: black;
 #apropos1{
   background: #fefefe;
   text-align: center;
-  margin-top: 10%;
+  /*margin-top: 10%;*/
+  /*margin-bottom: 5%;*/
 }
 
 
@@ -472,11 +520,11 @@ margin-bottom: 0 !important;
   border: 1px solid red;
 }
 
-.menu{
-  border: 1px solid yellow;
-}
-.clearfix{
+
+#boutique{
   background: #ffffff;
+  opacity: 0.5;
+  margin-top: 10%;
 }
 
 /*FIN Page boutique
@@ -486,20 +534,20 @@ margin-bottom: 0 !important;
 
 
 
-/* EDUCATION
--------------*/
-.education h2 {
-  text-transform: uppercase;
-}
-.education h3 {
-  color: #2C808C;
-}
 
 
 /* CONTACT & FOOTER
 --------------------*/
-.contact {
-  background: #111;
+.foot {
+  /*background: #111 !important;*/
+  /*opacity: 0.5;*/
+  color: #fff;
+  background: rgba(0, 0, 0, 0.3);
+  margin-bottom: 5px;
+}
+
+footer {
+  padding-top: 50px;
 }
 .contact p {
   margin: 0;
@@ -508,26 +556,29 @@ margin-bottom: 0 !important;
   margin-top: 35px;
 }
 .contact .social {
-  width: 50%;
-  float: right;
+  /*width: 50%;*/
+  /*float: right;*/
   text-align: right;
   font-size: 30px;
 }
 .contact .social a {
-  margin: 0 8px;
+  /*margin: 0 8px;*/
+}
+.social a{
+  font-size: 40px;
 }
 
-footer {
-  clear: both;
-  font-size: 12px;
-  margin-top: 50px;
-}
 .invalide{
  color: red;
 }
 .msg{
   color: black;
 }
+
+/* FIN  CONTACT & FOOTER
+--------------------*/
+
+
 
 /* MEDIA QUERIES
 --------------------*/
@@ -554,7 +605,7 @@ footer {
   .secondcenter .details {
     float: none; /* removed float */
     width: 100%; /* auto will work as well */
-    padding-right: 0px; /* don't need padding anymore now that it spans across the page */
+    padding-right: 0px; /
   }
   .secondcenter .description {
     width: 100%;
@@ -562,13 +613,7 @@ footer {
   }
 }
 @media (max-width: 600px) {
-  .icon-bar{
-    border: 1px solid pink;
 
-  }
-  header {
-    padding: 75px 40px;
-  }
   header h1 {
     font-size: 45px;
   }
@@ -585,4 +630,75 @@ footer {
     text-align: left;
     margin-bottom: 20px;
   }
+
+
+  @media only screen and (max-width:768px){
+
+
+
+    section{
+      width:100%;
+    }
+    /*on enlève le float sur les liens du menu et on applique une largeur de 100% */
+    header li {
+      float: none;
+      width: 100%;
+    }
+
+    /*on enlève la bordure gauche et on applique une bordure sur tous les côtés*/
+    header li{
+      border-left: 0px solid #fff!important;
+    }
+
+
+
+    .logo-h img {
+      width: 100%;
+      float: left;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+
+    /*on applique sur les liens une largeur de 100% */
+    /*header a {*/
+    /*width: 100%;*/
+    /*}*/
+
+
+
+
+    /*on style le bouton de la navigation mobile*/
+    #nav-mobile{
+      display: block;
+      text-align: center;
+      min-height: 50px;
+      text-transform: uppercase;
+      font-size: 2em;
+
+    }
+    #nav-mobile:hover{
+      background: rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+    }
+    /*on cache le menu de navigation qui s'ouvrira grâce à un script jQuery*/
+    #nav-desktop{
+      display: none;
+    }
+
+
+    aside{
+      display: block;
+      width:100%;
+      font-size: 1em;
+      border:none;
+    }
+
+
+  }
+
+
+
+
+
 }
