@@ -9,7 +9,7 @@ if (!empty($_POST)){
 if (!preg_match('/^[a-z0-9\-_.]+@[a-z0-9\-_.]+\.[a-z]{2,3}$/i',$email)){
     $valid=false;
     $erreuremail ="Votre email n'est pas valide";
-    echo'email pas valid';
+
 
     }
 
@@ -77,13 +77,13 @@ if (!preg_match('/^[a-z0-9\-_.]+@[a-z0-9\-_.]+\.[a-z]{2,3}$/i',$email)){
 <!-- HEADER -->
 
 <?php
-//include ('includes/header.php'); ?>
+include ('includes/header.php'); ?>
 
 
 
 <section class="row"></section>
 
-<div class="row ">
+<div class=" main row ">
 
         <div class=" mandat ">
             <div class=" col-lg-5 img-g">
@@ -93,18 +93,18 @@ if (!preg_match('/^[a-z0-9\-_.]+@[a-z0-9\-_.]+\.[a-z]{2,3}$/i',$email)){
 
             <div class="col-lg-7 ">
 
-                <form class="col-lg-8 col-lg-offset-2   " action="nouscontacter.php" method="post">
+                <form class="col-lg-10 col-lg-offset-1   " action="nouscontacter.php" method="post">
                     <fieldset>
-                    <legend class="">HELLO!</legend>
+                    <legend class="titre">HELLO!</legend>
                         <p class="msg">Prenez contact avec nous même pour prendre  un Café!</p>
-                        <p class="msg">Nous vous repondrons dans les plus brefs délais!</p>
+<!--                        <p class="msg">Nous vous repondrons dans les plus brefs délais!</p>-->
                         <?php if (isset($erreur)){echo " <p>$erreur</p>"; }
                         ?>
 
                     <div class="">
                     <div class="col-md-10 col-md-offset-1">
                     <label for="nom">Nom*</label>
-                    <input id="nom" name="nom" type="text" value="<?php if(isset($nom)) echo $nom ;?>" placeholder="nom" class="">
+                    <input id="nom" name="nom" type="text" value="<?php if(isset($nom)) echo $nom ;?>" placeholder="" class="">
                     <span class="error-msg"><?php if(isset($erreurnom)) echo $erreurnom ;?></span>
                     </div>
                     </div>
@@ -115,7 +115,7 @@ if (!preg_match('/^[a-z0-9\-_.]+@[a-z0-9\-_.]+\.[a-z]{2,3}$/i',$email)){
                     <div class="">
                     <div class="col-md-10 col-md-offset-1">
                     <label for="email">Courriel*</label>
-                    <input id="email" name="email" type="text" value="<?php if(isset($email)) echo $email; ?>"   placeholder="Courriel" class="">
+                    <input id="email" name="email" type="text" value="<?php if(isset($email)) echo $email; ?>"   placeholder="" class="">
                         <span class="error-msg"><?php if(isset($erreuremail)) echo $erreuremail; ?></span>
                     </div>
                     </div>
@@ -124,7 +124,7 @@ if (!preg_match('/^[a-z0-9\-_.]+@[a-z0-9\-_.]+\.[a-z]{2,3}$/i',$email)){
                     <div class="">
                     <div class="col-md-10 col-md-offset-1">
                     <label for="phone">Télephone*</label>
-                    <input id="phone" name="phone" type="text" value=""  placeholder="telephone" class="">
+                    <input id="phone" name="phone" type="text" value=""  placeholder="" class="">
                         <span class="error-msg"></span>
                     </div>
                     </div>
@@ -135,27 +135,27 @@ if (!preg_match('/^[a-z0-9\-_.]+@[a-z0-9\-_.]+\.[a-z]{2,3}$/i',$email)){
                         <div class="">
                     <div class="col-md-10 col-md-offset-1">
                     <label for="commentaire">Message*</label>
-                    <textarea class="" id="commentaire" name="commentaire" placeholder="Trez votre message ici ..." rows="7"><?php if(isset($commentaire)) echo $commentaire ?></textarea>
+                    <textarea class="" id="commentaire" name="commentaire" placeholder="" rows="7"><?php if(isset($commentaire)) echo $commentaire ?></textarea>
                         <span class="error-msg"><?php if(isset($erreurcommentaire)) echo $erreurcommentaire; ?></span>
                     </div>
                     </div>
 
 
+<!--                        <div class="info">-->
+<!--                            <div class="col-md-10 col-md-offset-1">-->
+<!---->
+<!--                            <label for="infolettre">Je souhaite souscrire à votre Newsletter</label>-->
+<!--                            <input type="checkbox" id=infolettre" name="infolettre" value="infolettre">-->
+<!--                            </div>-->
+<!--                             </div>-->
+
+
+
+
                         <div class="">
-                            <div class="col-md-10 col-md-offset-1">
-
-                            <label for="infolettre">Je souhaite souscrire à votre Newsletter</label>
-                            <input type="checkbox" id=infolettre" name="infolettre" value="infolettre">
-                            </div>
-                             </div>
-
-
-
-
-                        <div class="">
-                    <div class="col-md-12 text-center">
-                    <button id="envoyer" type="submit" class="">Envoyer</button>
-                        <button><a href="<?= basename($_SERVER["SCRIPT_FILENAME"]) ?>">Relancer la page</a></button>
+                    <div class="col-md-5 text-center">
+                    <button id="envoyer" type="submit" class="btn">Envoyer</button>
+<!--                        <button><a href="--><?//= basename($_SERVER["SCRIPT_FILENAME"]) ?><!--">Relancer la page</a></button>-->
                     </div>
                     </div>
                     </fieldset>
