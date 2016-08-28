@@ -166,6 +166,8 @@ $params = array(
 
 );
 
+
+
 foreach ($articles as $id => $produit){
     $params["L_PAYMENTREQUEST_0_NAME$id" ] = $produit['name'];
     $params["L_PAYMENTREQUEST_0_DESC$id"] = $produit ['description'];
