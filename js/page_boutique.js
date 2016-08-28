@@ -85,7 +85,8 @@ $(function(){
 //Ajout d'une classe en jQuery pour creer un bouton qui permettra de faire apparaitre la modal box
     $('.voir')
         .addClass('forfait_detail')
-        .text('Détails sur le produit');
+        .text('Détails sur le produit JAVASCRIPT')
+        .insertAfter('.add');
 
     $('.forfait_detail').click(function(){
         //var numero_forfait = $(this).closest('li').prop('data-idforfait');

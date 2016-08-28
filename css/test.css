@@ -1,0 +1,117 @@
+/*HEADER*/
+header {
+
+    color: #fff;
+    margin-bottom: 2em;
+}
+
+/*NAVIGATION*/
+
+header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+header li {
+    float: left;
+    width: 15%;
+}
+
+header li + li{
+
+}
+header li:last-child{
+
+}
+
+header a {
+    display: block;
+    line-height: 60px;
+    height: 60px;
+    color: #2C808C;
+    font-size: 15px;
+    font-weight: bold;
+    text-align:center;
+    text-transform: uppercase;
+    text-decoration: none !important;
+
+}
+header a:hover{
+
+}
+nav ul li a:hover {
+    border-bottom:1px solid  white !important;
+}
+/*on cache le bouton MENU de la navigation mobile*/
+#nav-mobile{
+    display: none;
+
+}
+/*on affiche la navigation desktop*/
+#nav-desktop{
+    display: block;
+}
+
+
+
+@media only screen and (max-width:768px){
+
+
+
+    section{
+        width:100%;
+    }
+    /*on enlève le float sur les liens du menu et on applique une largeur de 100% */
+    header li {
+        float: none;
+        width: 100%;
+    }
+
+    /*on enlève la bordure gauche et on applique une bordure sur tous les côtés*/
+    header li{
+        border-left: 0px solid #fff!important;
+    }
+    header li:nth-child(2n){
+        border-bottom: 1px solid #FFF;
+        border-top: 1px solid #FFF;
+
+    }
+    /*on applique sur les liens une largeur de 100% */
+    /*header a {*/
+    /*width: 100%;*/
+    /*}*/
+
+
+
+
+    /*on style le bouton de la navigation mobile*/
+    #nav-mobile{
+        display: block;
+        text-align: center;
+        min-height: 50px;
+        text-transform: uppercase;
+        font-size: 2em;
+        border-bottom: 2px solid #FFF;
+    }
+    #nav-mobile:hover{
+        background-color:#E8B262;
+        cursor: pointer;
+    }
+    /*on cache le menu de navigation qui s'ouvrira grâce à un script jQuery*/
+    #nav-desktop{
+        display: none;
+    }
+    aside{
+        display: block;
+        width:100%;
+        font-size: 1em;
+        border:none;
+    }
+
+
+}
+
+/*end SMALL DEVICES*/
+
