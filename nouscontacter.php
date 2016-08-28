@@ -58,7 +58,7 @@ $phone_valide = true;
 $phone_msg_validation = '';
 if ($receiving && array_key_exists('phone',$_POST)) {
     $phone = filter_input(INPUT_POST, 'phone',FILTER_VALIDATE_EMAIL);
-    $phone_valide = (1 === !preg_match("/[1-9][01][0-9]-?[0-9]{3}-=[0-9]{4}", $phone));
+    $phone_valide = (1 === !preg_match("/[1-9][01][0-9]-?[0-9]{3}-=[0-9]{4}/", $phone));
     if (!$phone) {
         $phone_msg_validation = "Format du numero invalide";
     }
@@ -80,20 +80,37 @@ if ($receiving) {
 
 
 
-//$infolettre = "";
-//$infolettre_valide = true; // Le champ est valide par défaut
-//$infolettre_msg_validation = ''; // Le message à renvoyer à l'utilisateur
-//if ($receiving) {
-//    $infolettre_valide = array_key_exists('infolettre', $_POST)
-//        && is_array($_POST,'infolettre');
-//    if ($infolettre_valide) {
-//        $infolettre = $_POST,'infolettre'; // Attention $role est un array ici
-//    } else {
-//        $role_msg_validation = "Aucun role n'est sélectionné";
-//    }
-//}
+$infolettre = "";
+$infolettre_valide = true; // Le champ est valide par défaut
+$infolettre_msg_validation = ''; // Le message à renvoyer à l'utilisateur
+if ($receiving) {
+    $infolettre_valide = array_key_exists('infolettre', $_POST)
+        && is_array($_POST,'infolettre');
+    if ($infolettre_valide) {
+        $infolettre = $_POST['infolettre']; // Attention $role est un array ici
+    } else {
+        $role_msg_validation = "Aucun role n'est sélectionné";
+    }
+}
 
 
+if ($valid){
+    $to ='lucyindomba@gmail.com';
+    $sujet = $nom.' a contact du site';
+    $header = "From: $nom <$email>";
+    if (mail($to,$sujet,$message,$header)) {
+        $nom = stripslashes($nom);
+        $email_msg_validation = 'Votre message à bien éte envoyé';
+        unset($nom);
+        unset($email);
+        unset($message);
+
+    }
+    else{
+        $erreur = 'Une erreur est survenue lors de l envoi';
+
+    }
+}
 
 /************Pour le renvoi vers la boite gmail************************************/
 ////form validation vars
@@ -219,6 +236,57 @@ if ($receiving) {
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function)(){
+            console.log('Le dom est chargé.');
+            $('#envoyer').click(function () {
+                valid= true;
+                if($('#nom').val() == "") {
+                    $('#nom').css('border-color', '#FFF0000');
+                    $('.msg_validation').text('Champs non valide');
+                    valid =false;
+                }
+                else {
+                    $('#nom').css('border-color', '#00FF00');
+                    $('.msg_validation').text('')
+
+                }
+
+
+                if($('#email').val() == "") {
+                    $('#email').css('border-color', '#FFF0000');
+                    $('.msg_validation').text('Veuillez entrer un email valide');
+                    valid =false;
+                }
+                else {
+                    if(!$('#email').val().match('/\w{2,}/'));
+                    $('#email').css('border-color', '#00FF00');
+                    $('.msg_validation').text('Veuillez entre un email valid');
+
+                }
+                else{
+                    $('#email').css('border-color','#00FF00');
+                    $('.msg_validation').text('');
+                }
+
+                if($('#commentaire').val() == "") {
+                    $('#commentaire').css('border-color', '#FFF0000');
+                    $('.msg_validation').text('Vous n avaez pas remplir de messsage');
+                    valid =false;
+                }
+                else {
+                    if(!$('#commentaire').val().match('/\w{2,}/'));
+                    $('#commentaire').css('border-color', '#00FF00');
+                    $('.msg_validation').text('Vous n avaez pas remplir de messsage');
+
+                }
+            }
+
+
+        });
+
+
+    </script>
 </head>
 <body>
 
@@ -237,24 +305,24 @@ include ('includes/header.php'); ?>
             <div class=" col-lg-5 img-g">
                 <img src="images/img_femme_travail.jpg" width="650" height="400" alt="logo client">
                 <p class="msg">Prenez contact avec nous même pour prendre  un Café!</p>
-                <span class="msg">Nous vous repondrons dans les plus brefs délais!</span>
+                <p class="msg">Nous vous repondrons dans les plus brefs délais!</p>
             </div>
 
-            <div class="col-lg-5 ">
+            <div class="col-lg-7 ">
 
-                <form class="form-horizontal" method="post">-->
+                <form class="form-horizontal" action="" method="post">-->
                     <fieldset>
                     <legend class="text-center header">HELLO!</legend>
-                    <div class="form-group">
-                    <div class=" col-md-10 col-md-offset-1">
-                        <span <?= $receiving && ( ! $prenom_valide) ? 'class="invalide"' : '' ?>>
-                    <label for="prenom">Prénom*</label>
-                    <input id="prenom" name="prenom" type="text" value="<?= $prenom ?>" placeholder="prenom" class="form-control">
-                            <?php if ($receiving && ( ! $prenom_valide)) {
-                                echo "<span class='msg_validation'>$prenom_msg_validation<span>";
-                            } ?>
-                    </div>
-                    </div>
+<!--                    <div class="form-group">-->
+<!--                    <div class=" col-md-10 col-md-offset-1">-->
+<!--                        <span --><?//= $receiving && ( ! $prenom_valide) ? 'class="invalide"' : '' ?><!-->-->
+<!--                    <label for="prenom">Prénom*</label>-->
+<!--                    <input id="prenom" name="prenom" type="text" value="--><?//= $prenom ?><!--" placeholder="prenom" class="form-control">-->
+<!--                            --><?php //if ($receiving && ( ! $prenom_valide)) {
+//                                echo "<span class='msg_validation'>$prenom_msg_validation<span>";
+//                            } ?>
+<!--                    </div>-->
+<!--                    </div>-->
                             </span>
 
                     <div class="form-group">
